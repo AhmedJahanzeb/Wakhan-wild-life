@@ -1,0 +1,771 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "DM Serif Display", serif;
+}
+/* Navbar styles */
+/* Global Styles */
+
+/* Header Styles */
+header {
+  background-color: #f3efef;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+}
+
+.logo img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.menu-icon {
+  font-size: 30px;
+  color: #333;
+  cursor: pointer;
+  display: none;
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+}
+
+.menu li {
+  position: relative;
+  margin: 0 10px;
+}
+
+.menu li:last-child {
+  margin-right: 0;
+}
+
+.menu li a {
+  display: block;
+  padding: 10px 20px;
+  color: #0c0c0c;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.menu li a:hover {
+  color: rgb(82, 81, 81);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: #0c0c0c;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(247, 239, 239);
+  color: #fff;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .logo {
+    width: 50%;
+  }
+
+  .menu {
+    position: fixed;
+    top: 80px;
+    right: -100%;
+    width: 100%;
+    height: calc(100% - 80px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    z-index: 99;
+    transition: all 0.3s ease;
+  }
+
+  .menu.active {
+    right: 0;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .menu li {
+    margin: 10px 0;
+  }
+
+  .menu li:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .menu {
+    display: flex !important;
+    position: static !important;
+    height: auto !important;
+    width: auto !important;
+    background-color: transparent !important;
+    z-index: 1;
+  }
+
+  .menu li {
+    margin: 0 10px;
+  }
+
+  .logo {
+    width: auto;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+}
+/* nav section styling ends */
+/* slider section */
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  cursor: pointer;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #bbb;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #fff;
+}
+/* slider section ended */
+/* <!-- photos section starts --> */
+.photo-categories {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  text-transform: uppercase;
+  padding-top: 2rem;
+}
+
+.diff-tours {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.tour {
+  width: 100%;
+  max-width: 426px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.tour img {
+  width: 100%;
+  height: 36vh;
+}
+.tour a {
+  text-decoration: none;
+  color: #000;
+}
+
+@media only screen and (min-width: 768px) {
+  .diff-tours {
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .photo-categories {
+    padding-top: 4rem;
+  }
+
+  .diff-tours {
+    justify-content: center;
+    margin-top: 4rem;
+  }
+
+  .tour {
+    padding: 2rem;
+  }
+}
+/* <!-- photos section ends --> */
+/* featured tour styling starts */
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  text-transform: uppercase;
+  padding-top: 2rem;
+}
+.the-tours {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+.feature-tours {
+  width: 100%;
+  max-width: 426px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+.feature-tours img {
+  width: 100%;
+  height: 300px;
+}
+@media only screen and (min-width: 768px) {
+  .the-tours {
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .heading {
+    padding-top: 4rem;
+  }
+
+  .the-tours {
+    justify-content: center;
+    margin-top: 4rem;
+  }
+
+  .feature-tours {
+    padding: 2rem;
+  }
+}
+/* featured tour styling  ends*/
+/* Photo-expedition styling starts */
+.photo-expedition {
+  background-color: #fff;
+  margin: 2rem auto;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-size: 16px;
+  line-height: 1.5;
+  background-image: url(../imgs/background-photoexpedition.jpeg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.leopard-expedition {
+  text-align: center;
+  margin-bottom: 2rem;
+  background-color: #fff;
+  width: 100%;
+}
+
+.leopard-expedition h1 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  color: #333;
+}
+
+.tours {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.feature-tour {
+  width: 100%;
+  max-width: 426px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+}
+
+.feature-tour img {
+  width: 100%;
+  height: 36vh;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.feature-tour h4 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 1rem;
+}
+
+/* Responsive Styles */
+
+/* For phones */
+@media only screen and (max-width: 480px) {
+  .photo-expedition {
+    padding: 1rem;
+  }
+
+  .leopard-expedition h1 {
+    font-size: 1.5rem;
+  }
+
+  .feature-tour {
+    max-width: 100%;
+  }
+
+  .feature-tour img {
+    height: 200px;
+  }
+}
+
+/* For tablets */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .photo-expedition {
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+
+  .leopard-expedition h1 {
+    font-size: 1.8rem;
+  }
+
+  .tours {
+    gap: 0.5rem;
+  }
+
+  .feature-tour {
+    max-width: 100%;
+    padding: 0.5rem;
+  }
+
+  .feature-tour img {
+    height: 300px;
+  }
+}
+
+/* For laptops and desktops */
+@media only screen and (min-width: 769px) {
+  .photo-expedition {
+    margin: 3rem auto;
+    padding: 2rem;
+  }
+
+  .leopard-expedition h1 {
+    font-size: 3rem;
+  }
+
+  .tours {
+    gap: 2rem;
+  }
+
+  .feature-tour {
+    max-width: 426px;
+    padding: 1rem;
+  }
+
+  .feature-tour img {
+    height: 36vh;
+  }
+}
+
+/* Photo-expedition styling ends */
+/* introduction styling starts */
+.introduction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.welcome {
+  width: 100%;
+  max-width: 800px;
+}
+
+.welcome h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.welcome p {
+  font-size: 1rem;
+}
+
+.company_logo img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .introduction {
+    flex-direction: column;
+  }
+
+  .welcome {
+    width: 80%;
+    max-width: none;
+  }
+
+  .company_logo img {
+    width: 50%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .welcome {
+    width: 80%;
+  }
+
+  .company_logo img {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .welcome {
+    width: 85%;
+  }
+
+  .company_logo img {
+    width: 30%;
+  }
+}
+
+/* introduction styling ends */
+/* team section styling starts here */
+.team_members {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.team {
+  width: 90%;
+  max-width: 400px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  .team {
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .team {
+    width: 30%;
+  }
+}
+
+/* team section styling starts here */
+/* promise section styling starts here */
+.promise {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-image: url(../imgs/ibex_jump.jpeg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.promise_pitch {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 60%;
+}
+/* promise section styling ends here */
+/* Enquire section styling starts here */
+.enquire_now {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #bbb;
+  padding: 20px;
+}
+
+.enquire_now h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  width: 40rem;
+  height: 6rem;
+  font-size: 24px;
+  margin: 0;
+}
+
+.plan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18rem;
+  height: 3rem;
+  background-color: #000;
+  margin-top: 20px;
+}
+
+.plan a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.plan a:hover {
+  color: #42b248; /* Adjust the hover color for Enquire Now */
+}
+
+.whatsapp {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* Media queries for responsiveness */
+@media only screen and (max-width: 600px) {
+  /* For phones */
+  .enquire_now h1 {
+    font-size: 18px;
+    width: 90%;
+    height: auto;
+    text-align: center;
+  }
+
+  .plan {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  /* For tablets */
+  .enquire_now h1 {
+    font-size: 22px;
+    width: 80%;
+    height: auto;
+    text-align: center;
+  }
+
+  .plan {
+    width: 16rem;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  /* For larger screens */
+  .enquire_now h1 {
+    font-size: 28px;
+  }
+
+  .plan {
+    width: 18rem;
+  }
+}
+
+/* Enquire section styling ends here */
+/* follow us secvtion styling starts here */
+.follow-us-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.follow-us-section h3 {
+  font-size: 18px;
+}
+
+/* Style the social icons */
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 24px;
+  color: #333; /* Adjust the color as needed */
+}
+
+.social-icons a:hover {
+  color: #4442b2; /* Adjust the hover color for Facebook */
+}
+
+.social-icons a:last-child {
+  margin-right: 0;
+}
+
+/* Media queries for responsiveness */
+@media only screen and (max-width: 600px) {
+  /* For phones */
+  .follow-us-section {
+    margin-top: 10px;
+  }
+
+  .follow-us-section h3 {
+    font-size: 16px;
+  }
+
+  .social-icons a {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  /* For tablets */
+  .follow-us-section h3 {
+    font-size: 20px;
+  }
+
+  .social-icons a {
+    font-size: 28px;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  /* For larger screens */
+  .follow-us-section {
+    margin-top: 30px;
+  }
+
+  .follow-us-section h3 {
+    font-size: 24px;
+  }
+
+  .social-icons a {
+    font-size: 32px;
+  }
+}
+/* follow us section stylingb ends here */
